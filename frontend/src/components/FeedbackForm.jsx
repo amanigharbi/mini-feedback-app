@@ -41,6 +41,7 @@ function FeedbackForm({ onSubmit }) {
   type="text"
   placeholder="Titre du message"
   value={title}
+  pattern="^[A-Z][a-zA-Z0-9 ]{0,29}$" // Commence par une majuscule et max 30 caractères
   onChange={(e) => setTitle(e.target.value)}
   required
 />
@@ -49,6 +50,7 @@ function FeedbackForm({ onSubmit }) {
         placeholder="Ton message..."
         value={message}
         onChange={(e) => setMessage(e.target.value)}
+        pattern="^[A-Z][\s\S]{0,699}$" // Commence par une majuscule et max 700 caractères
         required
       />
 <label>Catégorie</label>
