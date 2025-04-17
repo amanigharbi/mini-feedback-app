@@ -1,37 +1,9 @@
 [
     {
-        "id": "6800fb942bcfc",
-        "message": "test",
+        "id": "6801091624794",
+        "title": "test",
+        "message": "jhkjhkkhk",
         "category": "Management",
-        "image": "blob:http:\/\/localhost:5173\/9ec1991e-9935-4caa-b7de-9e960b4ac4b4",
-        "date": "2025-04-17 13:01:08"
-    },
-    {
-        "id": "6800fbea45c3c",
-        "message": "lettre",
-        "category": "Lettre",
-        "image": "",
-        "date": "2025-04-17 15:02:34"
-    },
-    {
-        "id": "6800fbf358f04",
-        "message": "lettre",
-        "category": "Lettre",
-        "image": "",
-        "date": "2025-04-17 15:02:43"
-    },
-    {
-        "id": "6800fc082f30b",
-        "message": "lettre",
-        "category": "Lettre",
-        "image": "blob:http:\/\/localhost:5173\/0456ab9d-de67-4b1d-b2d6-8e1f470de475",
-        "date": "2025-04-17 15:03:04"
-    },
-    {
-        "id": "6800ff86e45f9",
-        "message": "test",
-        "category": "Droit",
-        "image": "",
-        "date": "2025-04-17 15:17:58"
+        "date": "2025-04-17 15:58:46"
     }
 ]
