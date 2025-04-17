@@ -1,10 +1,12 @@
 import { useEffect, useState } from 'react';
 import FeedbackForm from './components/FeedbackForm';
 import FeedbackList from './components/FeedbackList';
+
 import './App.css';
 
 function App() {
   const [feedbacks, setFeedbacks] = useState([]);
+  const [selectedCategory, setSelectedCategory] = useState(''); // <-- Ajout pour filtrage
 
   const fetchFeedbacks = async () => {
     try {
@@ -35,11 +37,35 @@ function App() {
     fetchFeedbacks();
   }, []);
 
+  // 💡 Appliquer le filtre si une catégorie est sélectionnée
+  const filteredFeedbacks = selectedCategory
+    ? feedbacks.filter((fb) => fb.category === selectedCategory)
+    : feedbacks;
+
   return (
     <div className="container">
       <h1>💬 Mur de Feedbacks Anonymes</h1>
+
       <FeedbackForm onSubmit={addFeedback} />
-      <FeedbackList feedbacks={feedbacks} />
+
+      {/* 🧠 Selecteur de catégorie */}
+      <select
+        value={selectedCategory}
+        onChange={(e) => setSelectedCategory(e.target.value)}
+        className="category-select"
+      >
+        <option value="">-- Tous --</option>
+        <option value="Droit">Droit</option>
+        <option value="Management">Management</option>
+        <option value="Science">Science</option>
+        <option value="Lettre">Lettre</option>
+        <option value="Technologie">Technologie</option>
+        <option value="Sport">Sport</option>
+        <option value="Santé">Santé</option>
+        <option value="Autres">Autres</option>
+      </select>
+
+      <FeedbackList feedbacks={filteredFeedbacks} />
     </div>
   );
 }

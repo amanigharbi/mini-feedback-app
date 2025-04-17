@@ -4,6 +4,7 @@ function FeedbackForm({ onSubmit }) {
   const [message, setMessage] = useState('');
   const [imageURL, setImageURL] = useState('');
   const [imageFile, setImageFile] = useState(null);
+  const [category, setCategory] = useState('');
   const [preview, setPreview] = useState(null);
 
   const handleImageFileChange = (e) => {
@@ -27,6 +28,7 @@ function FeedbackForm({ onSubmit }) {
 
     const feedbackData = {
       message,
+        category,
       image,
       date: new Date().toLocaleString(),
       id: Date.now(),
@@ -41,6 +43,10 @@ function FeedbackForm({ onSubmit }) {
     setPreview(null);
   };
 
+
+
+  
+
   return (
     <form onSubmit={handleSubmit} className="form">
       <textarea
@@ -49,6 +55,22 @@ function FeedbackForm({ onSubmit }) {
         onChange={(e) => setMessage(e.target.value)}
         required
       />
+<label>Catégorie</label>
+<select
+  value={category}
+  onChange={(e) => setCategory(e.target.value)}
+  required
+>
+  <option value="">Choisis une catégorie</option>
+  <option value="Droit">Droit</option>
+  <option value="Management">Management</option>
+  <option value="Science">Science</option>
+  <option value="Lettre">Lettre</option>
+  <option value="Technologie">Technologie</option>
+  <option value="Sport">Sport</option>
+  <option value="Santé">Santé</option>
+  <option value="Autres">Autres</option>
+</select>
 
       <div className="image-inputs">
         <label>Lien d'image (URL)</label>

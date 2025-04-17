@@ -30,11 +30,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         http_response_code(400);
         exit;
     }
+    if (!isset($input['category']) || empty(trim($input['category']))) {
+        http_response_code(400);
+        echo json_encode(['error' => 'Catégorie requise']);
+        exit;
+    }
     $feedbacks = json_decode(file_get_contents($file), true);
+    date_default_timezone_set('Europe/Paris');
 
     $newFeedback = [
         'id' => uniqid(),
         'message' => htmlspecialchars($input['message']),
+        'category' => htmlspecialchars($input['category']),
+
         'image' => $input['image'],
         'date' => date('Y-m-d H:i:s')
     ];
@@ -46,3 +54,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     echo json_encode($newFeedback);
     exit;
 }
+
+
+
