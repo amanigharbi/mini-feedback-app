@@ -9,7 +9,6 @@ function FeedbackList({ feedbacks }) {
     <div className="feedbacks">
       {feedbacks.map((fb) => {
         const isValidImage = fb.image && fb.image.startsWith('blob:') || fb.image.startsWith('http');
-
         return (
           <div className="card" key={fb.id}>
             <img

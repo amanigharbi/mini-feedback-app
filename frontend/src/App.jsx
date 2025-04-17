@@ -7,7 +7,7 @@ import './App.css';
 function App() {
   const [feedbacks, setFeedbacks] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState(''); // <-- Ajout pour filtrage
-
+  const [sortOrder, setSortOrder] = useState('desc');
   const fetchFeedbacks = async () => {
     try {
       const res = await fetch('http://localhost:8000/backend/api/feedbacks.php');
@@ -37,11 +37,16 @@ function App() {
     fetchFeedbacks();
   }, []);
 
-  // 💡 Appliquer le filtre si une catégorie est sélectionnée
+  // 💡 Appliquer le filtre
+  const sortedFeedbacks = [...feedbacks].sort((a, b) => {
+    return sortOrder === 'asc'
+      ? new Date(a.date) - new Date(b.date)
+      : new Date(b.date) - new Date(a.date);
+  });
+  
   const filteredFeedbacks = selectedCategory
-    ? feedbacks.filter((fb) => fb.category === selectedCategory)
-    : feedbacks;
-
+    ? sortedFeedbacks.filter((fb) => fb.category === selectedCategory)
+    : sortedFeedbacks;
   return (
     <div className="container">
       <h1>💬 Mur de Feedbacks Anonymes</h1>
@@ -64,8 +69,16 @@ function App() {
         <option value="Santé">Santé</option>
         <option value="Autres">Autres</option>
       </select>
-
+{/* 🧠 Selecteur de tri */}
+<label>Tri :</label>
+  <select value={sortOrder} onChange={(e) => setSortOrder(e.target.value)}>
+    <option value="desc">Date ↓ (récent en premier)</option>
+    <option value="asc">Date ↑ (ancien en premier)</option>
+  </select>
       <FeedbackList feedbacks={filteredFeedbacks} />
+      <div className="sort-controls">
+ 
+</div>
     </div>
   );
 }
