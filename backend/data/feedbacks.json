@@ -26,5 +26,12 @@
         "category": "Lettre",
         "image": "blob:http:\/\/localhost:5173\/0456ab9d-de67-4b1d-b2d6-8e1f470de475",
         "date": "2025-04-17 15:03:04"
+    },
+    {
+        "id": "6800ff86e45f9",
+        "message": "test",
+        "category": "Droit",
+        "image": "",
+        "date": "2025-04-17 15:17:58"
     }
 ]

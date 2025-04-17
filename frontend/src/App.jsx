@@ -6,8 +6,10 @@ import './App.css';
 
 function App() {
   const [feedbacks, setFeedbacks] = useState([]);
-  const [selectedCategory, setSelectedCategory] = useState(''); // <-- Ajout pour filtrage
+  const [selectedCategory, setSelectedCategory] = useState('');
   const [sortOrder, setSortOrder] = useState('date-desc');  
+  const [searchTerm, setSearchTerm] = useState('');
+
   const fetchFeedbacks = async () => {
     try {
       const res = await fetch('http://localhost:8000/backend/api/feedbacks.php');
@@ -53,10 +55,12 @@ function App() {
     }
   });
   
-// by category  
-  const filteredFeedbacks = selectedCategory
-    ? sortedFeedbacks.filter((fb) => fb.category === selectedCategory)
-    : sortedFeedbacks;
+// by category  +search
+const filteredFeedbacks = sortedFeedbacks.filter((fb) => {
+  const matchCategory = selectedCategory ? fb.category === selectedCategory : true;
+  const matchSearch = fb.message.toLowerCase().includes(searchTerm.toLowerCase());
+  return matchCategory && matchSearch;
+});
   return (
     <div className="container">
       <h1>💬 Mur de Feedbacks Anonymes</h1>
@@ -88,6 +92,14 @@ function App() {
     <option value="az">Message A → Z</option>
     <option value="za">Message Z → A</option>
   </select>
+</div>
+<div className="search-bar">
+  <input
+    type="text"
+    placeholder="🔍 Rechercher un message..."
+    value={searchTerm}
+    onChange={(e) => setSearchTerm(e.target.value)}
+  />
 </div>
 
       <FeedbackList feedbacks={filteredFeedbacks} />
