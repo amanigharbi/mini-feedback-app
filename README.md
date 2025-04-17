@@ -23,52 +23,49 @@ Avant de commencer l'installation, assurez-vous d'avoir les éléments suivants 
 - Téléchargez et installez [Node.js](https://nodejs.org/fr).
 - Vérifiez l'installation avec :
 
-`node -v npm -v`
+`node -v`
+puis
+ `npm -v`
 
 2. **Serveur PHP** : Pour faire fonctionner le backend PHP.
 
-- Vous pouvez utiliser un serveur local comme XAMPP, WAMP, MAMP ou PHP intégré.
+    - Vous pouvez utiliser un serveur local comme XAMPP, WAMP, MAMP ou PHP intégré.
 
--- Téléchargez [XAMPP](https://www.apachefriends.org) et installez-le.
+    - Téléchargez [XAMPP](https://www.apachefriends.org) et installez-le.
 
 3. **Git** : Pour versionner votre code.
 
-- Téléchargez et installez [Git](https://git-scm.com/).
-  -Vérifiez l'installation avec :
-
-`git --version`
+    - Téléchargez et installez [Git](https://git-scm.com/).
+    
+    - Vérifiez l'installation avec : `git --version`
 
 4.  **Un éditeur de code** : Par exemple, [VSCode](https://code.visualstudio.com/).
 
 ## Étapes d'Installation
 
-1. Clonez le dépôt
+1. **Clonez le dépôt**
 
-Commencez par cloner ce projet sur votre machine locale avec Git :
+    Commencez par cloner ce projet sur votre machine locale avec Git : `git clone https://github.com/votre-utilisateur/mini-feedback-app.git`
 
-`git clone https://github.com/votre-utilisateur/mini-feedback-app.git`
+2. **Configuration du Backend (PHP)**
 
-2. Configuration du Backend (PHP)
+    - Ouvrez le dossier backend dans votre éditeur de code.
 
-- Ouvrez le dossier backend dans votre éditeur de code.
+    - Vérifiez que le fichier `feedbacks.json` existe dans le dossier `data/.` Si ce n'est pas le cas, créez-le manuellement.
 
-- Vérifiez que le fichier `feedbacks.json` existe dans le dossier `data/.` Si ce n'est pas le cas, créez-le manuellement.
+    - Si vous utilisez XAMPP, assurez-vous que le serveur Apache fonctionne. Copiez le dossier backend dans le dossier htdocs de XAMPP : `C:\xampp\htdocs\mini-feedback-app\backend\`
 
-- Si vous utilisez XAMPP, assurez-vous que le serveur Apache fonctionne. Copiez le dossier backend dans le dossier htdocs de XAMPP : `C:\xampp\htdocs\mini-feedback-app\backend\`
+    - Accédez à `http://localhost/mini-feedback-app/backend` dans votre navigateur pour tester que le backend est bien accessible.
 
-- Accédez à `http://localhost/mini-feedback-app/backend` dans votre navigateur pour tester que le backend est bien accessible.
+3. **Configuration du Frontend (React)**
 
-3. Configuration du Frontend (React)
+    - Ouvrez un terminal dans le dossier frontend.
 
-- Ouvrez un terminal dans le dossier frontend.
+    - Installez les dépendances avec npm : `npm install`
 
-- Installez les dépendances avec npm :
-  `npm install`
+    - Lancez le serveur de développement avec : `npm run dev`
 
-- Lancez le serveur de développement avec :
-  `npm run dev`
-
-- Accédez à l'application sur `http://localhost:3000 ` dans votre navigateur.
+    - Accédez à l'application sur `http://localhost:3000 ` dans votre navigateur.
 
 # Utilisation
 
@@ -80,9 +77,9 @@ Commencez par cloner ce projet sur votre machine locale avec Git :
 
 3. Vous pouvez soit :
 
-   - Ajouter un lien vers une image en utilisant le champ URL.
+     - Ajouter un lien vers une image en utilisant le champ URL.
 
-   - Importer une image depuis votre bureau en utilisant le bouton d'importation.
+     - Importer une image depuis votre bureau en utilisant le bouton d'importation.
 
 4. Cliquez sur Envoyer pour soumettre votre feedback.
 
@@ -96,32 +93,27 @@ Les feedbacks soumis s'affichent sous forme de liste. Vous pouvez les visualiser
 
 - `frontend/` : Contient tout le code React.
 
-  - `src/` : Code source de l'application frontend.
+    - `src/` : Code source de l'application frontend.
 
-  - `components/` : Contient les composants React, comme le formulaire de feedback et la liste des feedbacks.
+    - `components/` : Contient les composants React, comme le formulaire de feedback et la liste des feedbacks.
 
-  - `App.js` : Point d'entrée principal de l'application React.
+    - `App.js` : Point d'entrée principal de l'application React.
 
 - `backend/` : Contient le serveur PHP et les fichiers associés.
 
-  - `api/feedbacks.php `: Point de terminaison API qui gère les requêtes pour récupérer et ajouter des feedbacks.
+    - `api/feedbacks.php `: Point de terminaison API qui gère les requêtes pour récupérer et ajouter des feedbacks.
 
-  - `data/feedbacks.json` : Fichier de stockage des feedbacks (format JSON).
+    - `data/feedbacks.json` : Fichier de stockage des feedbacks (format JSON).
 
 ## Commandes Utiles
 
 **Frontend**
 
-- Installation des dépendances :
+- Installation des dépendances : `npm install`
 
-`npm install`
+- Démarrer le serveur de développement : `npm run dev`
 
-- Démarrer le serveur de développement :
-
-`npm run dev`
-
-- Construire l'application pour la production :
-  `npm run build`
+- Construire l'application pour la production : `npm run build`
 
 **Backend**
 
