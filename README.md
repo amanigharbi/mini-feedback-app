@@ -23,10 +23,7 @@ Avant de commencer l'installation, assurez-vous d'avoir les éléments suivants 
 - Téléchargez et installez [Node.js](https://nodejs.org/fr).
 - Vérifiez l'installation avec :
 
-```
-node -v
-npm -v
-```
+`node -v npm -v`
 
 2. **Serveur PHP** : Pour faire fonctionner le backend PHP.
 
@@ -39,10 +36,7 @@ npm -v
 - Téléchargez et installez [Git](https://git-scm.com/).
   -Vérifiez l'installation avec :
 
-```
-git --version
-
-```
+`git --version`
 
 4.  **Un éditeur de code** : Par exemple, [VSCode](https://code.visualstudio.com/).
 
@@ -136,3 +130,9 @@ Les feedbacks soumis s'affichent sous forme de liste. Vous pouvez les visualiser
 `php -S localhost:8000`
 
 Cela démarrera un serveur local qui servira le backend PHP à l'adresse `http://localhost:8000`.
+
+# Auteurs
+
+- [Amani GHARBI](https://github.com/amanigharbi)
+- [afef23](https://github.com/afef23)
+- [Arraymanios](https://github.com/Arraymanios)
