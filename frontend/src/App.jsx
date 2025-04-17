@@ -47,9 +47,9 @@ function App() {
       case 'date-desc':
         return new Date(b.date) - new Date(a.date);
       case 'az':
-        return a.message.localeCompare(b.message);
+        return a.title.localeCompare(b.title);
       case 'za':
-        return b.message.localeCompare(a.message);
+        return b.title.localeCompare(a.title);
       default:
         return 0;
     }
@@ -58,8 +58,11 @@ function App() {
 // by category  +search
 const filteredFeedbacks = sortedFeedbacks.filter((fb) => {
   const matchCategory = selectedCategory ? fb.category === selectedCategory : true;
-  const matchSearch = fb.message.toLowerCase().includes(searchTerm.toLowerCase());
-  return matchCategory && matchSearch;
+  const matchSearch = (
+    (fb.message && fb.message.toLowerCase().includes(searchTerm.toLowerCase())) ||
+    (fb.title && fb.title.toLowerCase().includes(searchTerm.toLowerCase()))
+  );
+    return matchCategory && matchSearch;
 });
   return (
     <div className="container">
@@ -89,8 +92,8 @@ const filteredFeedbacks = sortedFeedbacks.filter((fb) => {
   <select value={sortOrder} onChange={(e) => setSortOrder(e.target.value)}>
     <option value="date-desc">Date ↓ (récent en premier)</option>
     <option value="date-asc">Date ↑ (ancien en premier)</option>
-    <option value="az">Message A → Z</option>
-    <option value="za">Message Z → A</option>
+    <option value="az">Titre A → Z</option>
+    <option value="za">Titre Z → A</option>
   </select>
 </div>
 <div className="search-bar">
