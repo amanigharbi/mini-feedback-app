@@ -1,0 +1,30 @@
+# Node (React)
+node_modules/
+dist/
+.env
+.env.local
+*.log
+
+# Vite
+.vite/
+
+# Build React
+frontend/build/
+frontend/dist/
+
+# PHP
+vendor/
+*.lock
+
+# Données locales (feedbacks)
+backend/data/*.json
+
+# Systèmes
+.DS_Store
+Thumbs.db
+
+# IDEs & éditeurs
+.vscode/
+.idea/
+*.swp
+*.swo
