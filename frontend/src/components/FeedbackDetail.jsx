@@ -1,3 +1,4 @@
+import React from 'react';
 function FeedbackDetail({ feedback, onBack }) {
     return (
         <div style={{

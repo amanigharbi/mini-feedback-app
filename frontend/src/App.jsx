@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import FeedbackForm from './components/FeedbackForm';
 import FeedbackList from './components/FeedbackList';
 import FeedbackDetail from './components/FeedbackDetail';
+import React from 'react';
 
 function App() {
   const [feedbacks, setFeedbacks] = useState([]);

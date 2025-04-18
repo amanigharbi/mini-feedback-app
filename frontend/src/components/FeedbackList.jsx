@@ -1,3 +1,4 @@
+import React from 'react';
 function FeedbackList({ feedbacks, onSelectFeedback }) {
   if (!feedbacks.length) {
     return (
