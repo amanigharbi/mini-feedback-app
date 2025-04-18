@@ -56,22 +56,7 @@ function Navbar({ onAddFeedbackClick, showBackButton, onBackClick }) {
         justifyContent: 'flex-start', // Aligné à gauche
         paddingLeft: '1rem' // Décalage vers la gauche
       }}>
-        {!showBackButton && (
-          <button 
-            onClick={onAddFeedbackClick}
-            style={{
-              backgroundColor: '#f0f0f0',
-              border: 'none',
-              padding: '0.4rem 0.8rem',
-              fontWeight: 'bold',
-              borderRadius: '6px',
-              cursor: 'pointer',
-              transition: 'background-color 0.3s ease'
-            }}
-          >
-            Ajouter un feedback
-          </button>
-        )}
+       
       </div>
     </nav>
   );

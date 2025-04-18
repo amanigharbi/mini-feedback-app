@@ -99,6 +99,12 @@ function App() {
 
   {/* filtres par catégorie en boutons */}
   <div className="category-filters">
+  <button
+      onClick={() => setSelectedCategory('')}
+      className={selectedCategory === '' ? 'selected' : ''}
+    >
+      Tous
+    </button>
     {['Droit', 'Management', 'Science', 'Lettre', 'Technologie', 'Sport', 'Santé', 'Autres'].map((cat) => (
       <button
         key={categoryIcons[cat]} 
@@ -109,12 +115,7 @@ function App() {
 {categoryIcons[cat]} {cat}
 </button>
     ))}
-    <button
-      onClick={() => setSelectedCategory('')}
-      className={selectedCategory === '' ? 'selected' : ''}
-    >
-      Tous
-    </button>
+ 
   </div>
 
             <div className="filters-bar">
@@ -177,6 +178,16 @@ function App() {
           onBack={() => setView('list')} 
         />
       )}
+ {view === 'list' && !error && (
+  <a href="#"
+     onClick={() => setView('form')}
+     className="float-btn"
+     title="Ajouter un feedback"
+  >
+    <i className="fa fa-plus my-float"></i>
+  </a>
+)}
+
     </div>
   );
 }
