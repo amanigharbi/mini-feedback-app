@@ -1,7 +1,16 @@
 # Mini Feedback App
 
 Une application de feedbacks anonymes pour étudiants, avec la possibilité d'ajouter des commentaires accompagnés d'une image (via URL ou importée).
+![Interface Principale](./frontend/src/assets/cap1.png)
+*Capture 1 : Mur de feedbacks*
+## Fonctionnalités Principales
 
+- 📝 Publication de feedbacks anonymes
+- 🏷️ Catégorisation des feedbacks (Droit, Science, Management, etc.)
+- 🔍 Système de recherche et filtrage
+- 📅 Tri par date ou par titre
+- 📱 Interface responsive
+  
 # Stack Technique
 
 - **Frontend** : React, JSX, CSS
@@ -11,6 +20,54 @@ Une application de feedbacks anonymes pour étudiants, avec la possibilité d'aj
 - **Base de données** : Fichier JSON pour stocker les feedbacks
 
 - **Stockage des images** : Importation locale ou URL
+- **Tests** : Jest, Testing Library
+## Tests Automatisés
+
+L'application inclut une suite complète de tests automatisés :
+
+### Tests Frontend
+
+```bash
+npm test  # Exécute tous les tests
+```
+
+## Couverture des tests :
+
+1. **Liste des Feedbacks**
+
+- Affichage avec plusieurs feedbacks
+
+- Affichage avec un seul feedback
+
+- Cas d'aucun feedback
+
+- Mise à jour dynamique
+
+- Tri par date/titre
+
+2. **Publication de Feedbacks**
+
+- Validation du formulaire
+
+- Soumission réussie
+
+- Gestion des erreurs
+
+- Réinitialisation après soumission
+
+2. **Recherche/Filtrage**
+
+- Recherche par terme valide
+
+- Recherche insensible à la casse
+
+- Recherche par terme partiel
+
+- Filtrage par catégorie
+  
+![Formulaire de Feedback](./frontend/src/assets/cap2.png)
+Capture 2 : Formulaire de publication
+
 
 # Installation de l'environnement
 
@@ -86,6 +143,11 @@ puis
 ## Voir les Feedbacks
 
 Les feedbacks soumis s'affichent sous forme de liste. Vous pouvez les visualiser dans l'application sur la même page.
+
+![Exemple de Feedback](./frontend/src/assets/cap3.png)
+
+Capture 3 : Exemple de feedback publié
+
 
 # Développement
 
