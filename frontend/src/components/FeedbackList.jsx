@@ -1,7 +1,12 @@
 function FeedbackList({ feedbacks, onSelectFeedback }) {
   if (!feedbacks.length) {
-    return <p>Aucun feedback pour le moment</p>;
+    return (
+      <p style={{ textAlign: "center" }}>
+        Aucun feedback pour le moment
+      </p>
+    );
   }
+  
 
   const categoryColors = {
     Droit: '#F9E79F',
