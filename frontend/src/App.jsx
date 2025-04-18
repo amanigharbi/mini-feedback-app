@@ -9,11 +9,20 @@ function App() {
   const [selectedCategory, setSelectedCategory] = useState('');
   const [sortOrder, setSortOrder] = useState('date-desc');
   const [searchTerm, setSearchTerm] = useState('');
-  const [view, setView] = useState('list'); // 'list', 'form', 'detail'
+  const [view, setView] = useState('list');
   const [selectedFeedback, setSelectedFeedback] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-
+  const categoryIcons = {
+    Droit: '⚖️',
+    Management: '📈',
+    Science: '🔬',
+    Lettre: '📚',
+    Technologie: '💻',
+    Sport: '⚽',
+    Santé: '🩺',
+    Autres: '📝'
+  };
   const fetchFeedbacks = async () => {
     try {
       setLoading(true);
@@ -84,42 +93,67 @@ function App() {
       
       {view === 'list' && (
         <div className="main-container">
-          <aside className="filters-panel">
-            <h2>Filtres</h2>
-            <select
-              value={selectedCategory}
-              onChange={(e) => setSelectedCategory(e.target.value)}
-              className="category-select"
-            >
-              <option value="">-- Tous --</option>
-              <option value="Droit">Droit</option>
-              <option value="Management">Management</option>
-              <option value="Science">Science</option>
-              <option value="Lettre">Lettre</option>
-              <option value="Technologie">Technologie</option>
-              <option value="Sport">Sport</option>
-              <option value="Santé">Santé</option>
-              <option value="Autres">Autres</option>
-            </select>
-
-            <label>Tri :</label>
-            <select value={sortOrder} onChange={(e) => setSortOrder(e.target.value)}>
-              <option value="date-desc">Date ↓</option>
-              <option value="date-asc">Date ↑</option>
-              <option value="az">Titre A → Z</option>
-              <option value="za">Titre Z → A</option>
-            </select>
-
-            <input
-              type="text"
-              placeholder="🔍 Rechercher..."
-              value={searchTerm}
-              onChange={(e) => setSearchTerm(e.target.value)}
-            />
-          </aside>
-
           <main className="content-panel">
             <h1>💬 Mur de Feedbacks Anonymes</h1>
+          
+
+  {/* filtres par catégorie en boutons */}
+  <div className="category-filters">
+    {['Droit', 'Management', 'Science', 'Lettre', 'Technologie', 'Sport', 'Santé', 'Autres'].map((cat) => (
+      <button
+        key={categoryIcons[cat]} 
+
+        onClick={() => setSelectedCategory(cat === selectedCategory ? '' : cat)}
+        className={cat === selectedCategory ? 'selected' : ''}
+      >
+{categoryIcons[cat]} {cat}
+</button>
+    ))}
+    <button
+      onClick={() => setSelectedCategory('')}
+      className={selectedCategory === '' ? 'selected' : ''}
+    >
+      Tous
+    </button>
+  </div>
+
+            <div className="filters-bar">
+              <input
+                type="text"
+                placeholder="🔍 Rechercher..."
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+                className="filter-input"
+              />
+
+              <select
+                value={selectedCategory}
+                onChange={(e) => setSelectedCategory(e.target.value)}
+                className="filter-select"
+              >
+                <option value="">Toutes les catégories</option>
+                <option value="Droit">Droit</option>
+                <option value="Management">Management</option>
+                <option value="Science">Science</option>
+                <option value="Lettre">Lettre</option>
+                <option value="Technologie">Technologie</option>
+                <option value="Sport">Sport</option>
+                <option value="Santé">Santé</option>
+                <option value="Autres">Autres</option>
+              </select>
+
+              <select
+                value={sortOrder}
+                onChange={(e) => setSortOrder(e.target.value)}
+                className="filter-select"
+              >
+                <option value="date-desc">Date ↓</option>
+                <option value="date-asc">Date ↑</option>
+                <option value="az">Titre A → Z</option>
+                <option value="za">Titre Z → A</option>
+              </select>
+            </div>
+
             {loading && <p>Chargement en cours...</p>}
             {error && <p className="error">{error}</p>}
             {!loading && !error && (
