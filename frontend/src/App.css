@@ -14,7 +14,7 @@
 
 /* Page de détail */
 .detail-page {
-  background-image: linear-gradient( 89.5deg,  rgba(131,204,255,1) 0.4%, rgba(66,144,251,1) 100.3% );
+  background-image: linear-gradient( 89.5deg,  rgba(131,204,255,1) 0.4%, rgba(66,144,251,1) 100.3% );
   background-size: cover;
   min-height: 100vh;
   padding: 2rem;
@@ -61,7 +61,7 @@
 .feedback-message {
   margin-top: 2rem;
   padding: 1rem;
-  background: #f9f9f9;
+  background: #dfdbdb;
   border-radius: 8px;
   line-height: 1.6;
 }

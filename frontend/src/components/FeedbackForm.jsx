@@ -38,27 +38,30 @@ function FeedbackForm({ onSubmit, onClose }) {
   const styles = {
     formModal: {
       position: 'fixed',
-      top: 0,
-      left: 0,
+      bottom: '20px', // Positionné en bas
+      left: '0',
       width: '100%',
-      height: '100%',
-      backgroundColor: 'rgba(0, 0, 0, 0.5)',
       display: 'flex',
       justifyContent: 'center',
-      alignItems: 'center',
+      alignItems: 'flex-end', // Alignement en bas
       zIndex: 1000,
     },
     form: {
       backgroundColor: 'white',
       padding: '2rem',
       borderRadius: '12px',
-      boxShadow: '0 4px 20px rgba(0, 0, 0, 0.15)',
+      boxShadow: '0 -4px 20px rgba(0, 0, 0, 0.15)', // Ombre vers le haut
       width: '500px',
       maxWidth: '90%',
+      marginBottom: '20px', // Espace depuis le bas
     },
+  
     formGroup: {
-      marginBottom: '1.5rem',
+      display: 'flex',
+      flexDirection: 'column',
+      width: '100%', // Prend toute la largeur disponible
     },
+  
     label: {
       display: 'block',
       marginBottom: '0.5rem',
@@ -72,15 +75,17 @@ function FeedbackForm({ onSubmit, onClose }) {
       borderRadius: '8px',
       fontSize: '1rem',
       height: '50px',
+      boxSizing: 'border-box', 
     },
     textarea: {
       width: '100%',
-      minHeight: '200px',
+      minHeight: '200px', 
       padding: '12px',
       border: '1px solid #ddd',
       borderRadius: '8px',
       fontSize: '1rem',
       resize: 'vertical',
+       boxSizing: 'border-box'
     },
     select: {
       width: '100%',
@@ -89,6 +94,7 @@ function FeedbackForm({ onSubmit, onClose }) {
       borderRadius: '8px',
       fontSize: '1rem',
       backgroundColor: 'white',
+      boxSizing: 'border-box'
     },
     formActions: {
       display: 'flex',
