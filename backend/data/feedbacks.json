@@ -2,7 +2,6 @@
     {
         "id": "6800fb942bcfc",
         "title": "test1",
-
         "message": "test",
         "category": "Management",
         "date": "2025-04-17 13:01:08"
@@ -10,14 +9,11 @@
     {
         "id": "6800fbea45c3c",
         "title": "test2",
-
         "message": "lettre",
         "category": "Lettre",
         "image": "",
         "date": "2025-04-17 15:02:34"
     },
-  
-
     {
         "id": "6800ff86e45f9",
         "title": "test3",
@@ -66,5 +62,12 @@
         "message": "la lecture des livres classiques n'est pas mon fort ",
         "category": "Lettre",
         "date": "2025-04-18 09:22:30"
+    },
+    {
+        "id": "680258832c661",
+        "title": "Amani",
+        "message": "hhhhjkhkgkgggk:gk",
+        "category": "Technologie",
+        "date": "2025-04-18 15:49:55"
     }
 ]
