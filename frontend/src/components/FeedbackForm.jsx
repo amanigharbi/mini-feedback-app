@@ -160,14 +160,6 @@ function FeedbackForm({ onSubmit, onClose }) {
 
         <div style={styles.formActions}>
           <button 
-            type="submit" 
-            style={styles.submitBtn}
-            onMouseOver={(e) => e.currentTarget.style.backgroundColor = styles.btnHover.submit.backgroundColor}
-            onMouseOut={(e) => e.currentTarget.style.backgroundColor = styles.submitBtn.backgroundColor}
-          >
-            Envoyer
-          </button>
-          <button 
             type="button" 
             onClick={onClose} 
             style={styles.cancelBtn}
@@ -175,6 +167,14 @@ function FeedbackForm({ onSubmit, onClose }) {
             onMouseOut={(e) => e.currentTarget.style.backgroundColor = styles.cancelBtn.backgroundColor}
           >
             Annuler
+          </button>
+          <button 
+            type="submit" 
+            style={styles.submitBtn}
+            onMouseOver={(e) => e.currentTarget.style.backgroundColor = styles.btnHover.submit.backgroundColor}
+            onMouseOut={(e) => e.currentTarget.style.backgroundColor = styles.submitBtn.backgroundColor}
+          >
+            Envoyer
           </button>
         </div>
       </form>
