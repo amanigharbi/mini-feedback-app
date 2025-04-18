@@ -1,9 +1,21 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 
 function FeedbackForm({ onSubmit, onClose }) {
   const [title, setTitle] = useState('');
   const [message, setMessage] = useState('');
   const [category, setCategory] = useState('');
+
+  const formRef = useRef(null);
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (formRef.current && !formRef.current.contains(event.target)) {
+        onClose();
+      }
+    };
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, [onClose]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -23,7 +35,6 @@ function FeedbackForm({ onSubmit, onClose }) {
     setCategory('');
   };
 
-  // Styles intégrés
   const styles = {
     formModal: {
       position: 'fixed',
@@ -60,11 +71,11 @@ function FeedbackForm({ onSubmit, onClose }) {
       border: '1px solid #ddd',
       borderRadius: '8px',
       fontSize: '1rem',
-      height: '50px', // Taille augmentée
+      height: '50px',
     },
     textarea: {
       width: '100%',
-      minHeight: '200px', // Taille augmentée
+      minHeight: '200px',
       padding: '12px',
       border: '1px solid #ddd',
       borderRadius: '8px',
@@ -110,15 +121,11 @@ function FeedbackForm({ onSubmit, onClose }) {
     },
   };
 
-
-
-  
-
   return (
     <div style={styles.formModal}>
-      <form onSubmit={handleSubmit} style={styles.form}>
+      <form ref={formRef} onSubmit={handleSubmit} style={styles.form}>
         <h2 style={{ marginBottom: '1.5rem', color: '#333', textAlign: 'center' }}>Nouveau Feedback</h2>
-        
+
         <div style={styles.formGroup}>
           <label style={styles.label}>Titre</label>
           <input
