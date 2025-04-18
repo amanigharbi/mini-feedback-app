@@ -8,9 +8,9 @@
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "test": "jest",
-    "test:watch": "jest --watch"
-  },
+    "test": "jest --verbose",
+    "test:watch": "jest --watch --verbose",
+    "test:coverage": "jest --coverage --verbose"  },
   "dependencies": {
     "react": "^19.1.0",
     "react-dom": "^19.1.0"
