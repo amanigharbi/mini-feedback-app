@@ -4,13 +4,14 @@ function FeedbackDetail({ feedback, onBack }) {
             padding: '2rem',
             width: '90%',
             maxWidth: '1200px',
-            margin: '80px auto 2rem',
+            margin: '20px auto 2rem',
         }}>
             <button className="back-btn" onClick={onBack}>
                 ← Retour
             </button>
 
             <div style={{
+                height: 'auto',
                 border: '1px solid #e0e0e0',
                 borderRadius: '8px',
                 overflow: 'hidden',
