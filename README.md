@@ -188,5 +188,3 @@ Cela démarrera un serveur local qui servira le backend PHP à l'adresse `http:/
 # Auteurs
 
 - [Amani GHARBI](https://github.com/amanigharbi)
-- [afef23](https://github.com/afef23)
-- [Arraymanios](https://github.com/Arraymanios)
